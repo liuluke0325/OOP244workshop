@@ -1,0 +1,39 @@
+1.	The operator+ returns a Fraction object. Explain why this operator should not return a reference to a Fraction object (like operator+=).
+
+The purpose of operator + is to calculate the fraction, then return the calculated value to the caller. When the fraction is calculating, the data will be stored in the local variable. Because of the operator + returns by value, the caller will work properly when the member operator goes out of scope. However, if we return a reference in operator +, the caller will get the reference of the local variable. Furthermore, the caller will hold the garbage value because the local variable has been destroyed. After that, the caller works with the garbage value might lead to error.
+
+
+
+2.	List the temporary objects in the tester module (the temporary objects are those that have no name and are removed from memory immediately after their creation; put messages in the constructorsdestructor to reveal them).
+
+1.	Creating object c(-5,15)  
+I call the default construction inside the constructor with 2 parameters, it will create a temporary object then set the value into the current object. By doing this it can make the current object into the safe empty state.
+2.	  (a + b).display();
+3.	  (b + d).display();
+4.	  (b += d).display();
+In the operator + I create a local temporary object to calculate the value. Besides, I call the operator+ in the operator +=. 
+
+
+
+3.	List the simplifications that you made to your class to minimize duplication.
+
+1.    Calling the default construction inside the constructor with 2 parameters, in order to set the object into the safe empty state.
+2.    Calling the member operator+ inside member operator +=.
+3.    Calling the member operator == inside member operator +=, because two of the member operators basically works in reverse. 
+4.    Create the isEmpty() to check if the object in the safe empty state or not.
+5.    Create the max(), min(), gcd(), and reduce() to set the fraction into irreducible fraction.
+
+
+
+
+
+4.	What I have learned in this workshop
+In this workshop, I learned that how does the member operator work. The member operator works like a normal function. It combines
+(Return type for current object) + operator (the operator symbol we want to overload) + (the right operand¡¦s type and name) 
+For example, Fraction operator+ (const Fraction& rhs) const means the member operator + will receive the reference of Fraction type's object and return Fraction type's value(an object) to the current object.
+
+
+
+
+
+Quiz reflection no quiz last week

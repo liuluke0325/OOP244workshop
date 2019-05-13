@@ -1,0 +1,45 @@
+
+1.      Why do you need to allocate new dynamic memory for the entire array when you increase the size of an existing array of dynamically allocated memory? Why not allocate memory only for the new element? 
+
+
+Dynamic array allocation means the array will be allocated the memory at run-time. 
+The data will be stored in the consecutive memory. 
+However, because we do not know what the data is stored in the memory besides it, we cannot change the size of the dynamic array directly. 
+As a result, we need to create a new dynamic array in order to resize it.  
+
+
+
+2) The CellPhone structure stores the model of the cellphone in an array of characters. At the end of the program, we do not use the delete operator to deallocate the memory occupied by the model. Why don¡¦t we need to use the delete operator on this array itself? Explain and compare with the array of cellphones. 
+
+The definition of static memory:
+Once the program starts, the OS will allocate the memory for it. 
+The variable and object such as the model array in CellPhone structure will share the static memory. 
+Once the program terminates or the object goes out of the scope, the memory will be available for others to use. 
+As a result, we do not need to write ¡§delete¡¨ to delete it.
+
+The definition of Dynamic allocation: 
+The program will ask the OS to provide the dynamic memory in run-time. 
+When we are using the keyword ¡§new¡¨, the object will be allocated in dynamic memory in run-time.
+ Unlike the normal array, we need to use ¡§delete¡¨ to deallocate the dynamic array, otherwise, it will remain there or until the application terminates.
+
+
+3) There are two display(...) function definitions. How does the compiler know which definition to call from your main function? 
+
+The compiler will distinguish the overloading function by the function identifier, such as the parameter¡¦s type and parameter¡¦s number.
+Once we compile it, the compiler will rename the overloading function by the different identifier combination. 
+This process is called mangling.
+
+
+
+QUIZ 2 REFLECTION
+
+Q2 : What is passed to a C++ reference parameter?
+It passed the reference of argument (object and variable) to the called function.
+
+Q3: 
+char * storm = nullptr;   // create a pointer
+storm = char[6];  // dynamic array allocation
+strcpy(storm, ¡§Strom¡¨); // using strcpy( destination pointer, string to be copied) to store the string 
+delete[]storm;   // deallocation
+storm = nullptr; // set the null to pointer
+

@@ -1,0 +1,20 @@
+
+1.	What happens if you try to put your template functions in Data.cpp? Does your source code compile if you move all functions to Data.h? 
+
+When I move the readRow function into .cpp file, the compiler complains that it can not find the readRow(). In addition, if I put all of the function into Data.h, in the answer() the compiler complains that it can not find the max() or min(). This is because the compiler hasn't created the implementation of min() or max() yet.
+Basically, we need to put all of the function template in .h file rather than in .cpp file. This is because the compiler will use the ¡§patter¡¨ to create the implementation. 
+
+2.	Move one template function into ws9_lab.cpp. Does it work now? Do you need to define the template function above main(), before it is used, or can you define it below main()?
+In the case of placing display() above main(), it works properly. However, If the display() is after main(), the compiler complains that it can not find display().
+ 
+3.	Could you have done this lab without templates, by just overloading your functions in Data.h to accept integer and double arguments? What is the advantage of using templates? 
+
+Yes, it can still work. However, we need to create several overloading functions only different in parameter
+s type which is inefficiency. As a result, using the function template can help us to prevent duplication. To be more specific,
+Function overloading is for multiple functions do similar works. On the other hand, the template is for multiple functions to do the same works(only different in type).
+
+4.	What is the difference between template<class T> and template<typename T>? 
+In c++ both template<classT> and template<typename T> work the same. The compiler will use the patter specific in the template to the create the implementation.
+
+5. What have you learned doing this workshop? 
+In this workshop, I learned the way to use the function template and a new concept to prevent code duplication. Before it we need to specify the type of parameter for the client to use; however, after learning function template, the client can decide the parameter's type by their need and the compiler will create all of the function implementations for us.

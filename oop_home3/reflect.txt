@@ -1,0 +1,36 @@
+
+1)	What type have you selected for ISBN? Explain your reasoning. 
+I selected long long, which also called _int64, for ISBN. 
+We cannot use the normal integer to store ISBN because the ISBN contains 13 digits. 
+As for int, it contains 4 bits and the range of values is -2,147,483,648 to 2,147,483,647, which contains up to 10 digits. 
+However, long long contains 8 bits and the range of values is -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807, which contains up to 19 digits. 
+As a result, if we want to store ISBN, we need to use long long to provide enough space to store the value.
+
+2) For the at-home portion you had to change the logic that validates an ISBN. How would you design your class in such a way that if a new update to the validation logic is necessary, you don・t have to change anything in the func-tion Book::set(...)? 
+
+If we want to create a new validation logic without modifying the original set(), we can create the derived class. 
+The derived class will inherit data from the existing class. In addition, we can also create a new set() in the derived class. 
+Because of the function overriding, the object created by the derived class will use new set() with new validation logic. 
+As a result, we don・t have to change anything in the original set().
+
+
+3) The way of using strncpy:
+Strncpy(destination, source, number), a function used to copy specific numbers of characters from source string to the destination. 
+There will be two situations. 
+First, if the length of the source (null-terminated byte included) is smaller than number, then all the source string will be copied into destination (null terminated byte included). 
+However, if the source length is greater than number, then only the specific numbers of characters will be copied to the destination, which means the destination string will not have null-terminated byte. 
+As a result, we need to add the null-terminated byte manually. 
+
+Strncpy ( destination, source, number)  // (number >= source.length (null terminated byte included)    
+
+or 
+strncpy (destination , source, number)  // (number <source.length (null terminated byte included)   
+source[number]=・\0・   // add the null terminated byte manually
+
+
+Quiz 3 Reflection  9/10
+
+6. Describe the characteristics of a well-encapsulated C++ class in one sentence.
+
+Wrong: User can only access the data members in C++ class by calling class member function.
+Correct:  All data members in C++ class are private, which means clients cannot direct access or modify it, clients must call the member function in order to access data member.

@@ -1,0 +1,35 @@
+
+1.	Does the Hero class need to know about the existence of the SuperHero class? (Hint: do a search in Hero.cpp, does the word ¡§SuperHero¡¨ appear anywhere?) 
+No, if we only look at the base class, there is no way to find out that is there any derived class related to it.
+
+2.	Does the SuperHero class need to know about the existence of the Hero class? (Hint: do a search in SuperHero.cpp, does the word ¡§Hero¡¨ appear anywhere?) 
+Yes, we need to specify the base class that we want to inherit. With this hint, we can easily understand that which is the derived class and which is the parent(base) class. 
+Besides, when we need to call the base class's function member, we can use the scope resolution to specify that function.
+
+3. The program prints out ¡§Ancient Battle!¡¨ when 2 Heroes fight. It prints out ¡§Super Fight!¡¨ when 2 SuperHeroes fight. 
+When you tried to make a Hero fight a SuperHero, what did it print out? 
+In hero v.s superhero, the compiler calls the operator* which takes two heroes as the parameter. 
+Because of the up casting, the compiler will treat the reference of superhero like the base class pointer(reference). 
+As a result, it printed out "Ancient Battle!"
+
+
+
+
+Quiz 6 reflection
+
+1. Given a c++ class named Employee. Write down one or two lines of code that invokes the copy constructor.
+wrong: employee(const employee&);
+
+correct:
+Employee a (b);
+Employee a, b=a;
+
+2. A C++ constructor allocates memory dynamically when an object is initialized. Name two problems if the assignment operator is not overloaded.
+wrong:
+b. when assign the object to itself, it might delete the dynamical memory array of itself accidently.
+
+correct:
+a. Different objects might hold the same address.
+b. It may lead to the memory leak because we assign the pointer to the other address and without deallocating the dynamic memory.
+
+

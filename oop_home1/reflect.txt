@@ -1,0 +1,38 @@
+1.	The purpose of namespaces and header files; 
+The purpose of using namespace is setting the scope to prevent using the wrong function or variable with the same names. 
+Because of modular programming, it will be some possibility to create the same name in different modular. 
+By using this technique, the compiler would know which right function to compile.
+
+The purpose of using header file is to declare the structure, class, and function prototypes. 
+In addition, we can include different header files in different .cpp files.
+ By doing so we can separate the code into different modules, which is modular programming.
+ As a result, we can increase efficiency and better maintenance.
+
+2.	Why header files should not be compiled; 
+We don¡¦t need to compile header file because it will be included to the .cpp file (Transiation unit ) by preprocessor.
+ In addition, the main purpose of header file is declaring and function prototype.
+ Without the .cpp file, which contained function body, it won¡¦t work properly. 
+As a result, we don¡¦t need to compile header file.
+
+3.	Why you should never include .cpp files in another file. 
+If we include .cpp files in another .cpp file, it might have the risk of compiling same source file twice, which may lead to error.
+ In addition, once we include .cpp file, it will merge by the preprocessor.
+ As the result, it is the same as writing every code in one big .cpp file, which is not a good practice.
+
+
+4.	The purpose of using ifndef and endif in header file.
+When we start to separate our code into different modules, we need to include the different header file to let it work properly;
+ however, there is the possibility to include the same header file more than once. 
+As a result, while compiling it may compile the same source file more than once. 
+This might lead to the error; however, if we use ifndef and endif in header file, once the .cpp file has the same pattern it will skip it. 
+Therefore, we can prevent this issue.
+
+
+
+Quiz 1 Reflection:
+
+
+I got 10/10 in the quiz; however, while writing the quiz, I had no confidence in question 2.
+The purpose of using the scope resolution operator? (scope resolution operator::)
+1.    If the local variable has the same name as the global variable, we can use the scope resolution operator to call the global variable.
+2.    If we create functions and variables in the namespace, we can use the scope resolution operator to call it.

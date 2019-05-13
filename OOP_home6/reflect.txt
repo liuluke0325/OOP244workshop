@@ -1,0 +1,15 @@
+
+1.	Why does the copy assignment operator check for self-assignment before doing anything else? If it doesn・t do this test, what could go wrong? 
+
+Because of the deep copy, the copy assignment operator will deallocate the current object・s dynamic memory. After that, allocating the new size of the dynamic memory array to hold the source・s data. However, if we don't check the self-assignment, the problem comes out. For example, once the copy assignment operator deallocates the current object's dynamic memory, the source object, which is also itself, has already lost control of the data in the dynamic memory array. As a result, we will lose data unintentionally.
+
+
+2.	What you must do in the copy constructor before calling the copy assign-ment operator? Explain why it is necessary. 
+
+
+If we want to call the copy assignment operator in the constructor, we need to make sure the pointer in the newly created object holds the nullptr. To clarify, the copy assignment operator will deallocate the current object・s dynamic memory. However, before we assign any data into the newly created object, it will hold some garbage values. In that case, when the copy assignment operator is called, the compiler will try to deallocate the garbage value, which might lead to the error. On the other hand, if we set the nullptr into the pointer first, we can prevent this problem.
+
+
+3. Explain why the parameter of the copy constructor must be sent by-refer-ence and not by-value (modify your code to send it by-value and explain the result).
+ 
+The purpose of the copy constructor is to copy the existing object to the other existing object. The copy construction will be called when we use the existing object to create a new object. In addition, it will also be called when the object is passed by value. As a result, if the parameter in the copy constructor is sent by value, the compiler will try to call the copy constructor. However, when the compiler calls the copy constructor, the compiler will call the copy constructor again. It will lead to the infinity loop. In conclusion, the parameter in copy constructor must be the reference.

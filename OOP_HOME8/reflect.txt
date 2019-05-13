@@ -1,0 +1,18 @@
+
+1.	What is the difference between an abstract base class and a concrete class? 
+Abstract base class means a class contains or derived at least one of the pure virtual function. Because of the pure virtual function, the compiler can not use the abstract base class to create an object. In addition, if an abstract base class contains only pure virtual functions and no data member, we call it a pure interface. On the other hand, a concrete class means the class derived from an abstract class and contains the implementation of the function members, which also means no pure virtual functions. As a result, the compiler can instantiate the concrete class.
+
+
+2.	Take a look to the main module¡Xhow is it possible that this module can work with chequing and savings accounts but doesn¡¦t know about the SavingsAccount or ChequingAccount classes? 
+
+It is possible because of the helper function "CreateAccount" in the interface. In the CreateAccount helper function, if it receives a string starting as "S", then it will dynamically allocate the memory for Savingaccout object. On the other hand, if it receives a string starting as "C", then it will create the Chequingaccount object.
+
+3.	Note that the interface has a destructor, even if doesn¡¦t store any attributes. Why is that destructor necessary? 
+Because for the polymorphism, we need to create the virtual destructor in the interface. By doing this, the compiler will call the current object type's destructor and the base class destructor. Otherwise, without the virtual destructor, the complier will only call the base destructor. As a result, it might lead to some problem, such as memory leak.
+
+4. In the context of a hierarchy of classes, what is the difference between overloading, overriding and shadowing? 
+Overloading means the function has different meanings. It happens both in the base class and the derived class. When the function has the same identifier but with different signatures, the compiler will treat them differently.   
+
+Overloading happens only in the derived class. If the function in derived class has the same function signature within the based class, the compiler will "override" the function so we can create the new implementation.
+
+Shadowing means if the function member in derived class has the same function identifier with the base class, the compiler will ¡§hide¡¨ (or shadowed) the member function derived from the base class.  As a result, the compiler will call the one which defined in the derived class.

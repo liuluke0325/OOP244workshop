@@ -1,0 +1,14 @@
+In line number 427 of your output:
+The output should be:
+Too many items; only 300 is needed. Please return the extra 50 items.
+                        ^
+But your output is: 
+Too many items; only 300is needed. Please return the extra 50 items.
+                        ^
+
+Unmatched character details:
+The character in column 25 is supposed to be:
+  [Space] ASCII code(32)
+but you printed
+  [i] ASCII code(105)
+

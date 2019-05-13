@@ -1,0 +1,29 @@
+1)	What is a safe empty state? Could you define another state as the safe empty state? 
+Safe empty state means to initialize the object into designed value from the time object created by constructor, 
+to prevent member functions accessing the data before initialized. 
+As a result, although clients didn't set another value into the object, the code will still not lead to error.
+
+We can create variables and set a designed value in it or design the function which will check the data before it runs it, in order to prevent unpredictable behavior, such as printing value but accidentally printing out the address. We can define it as the empty state. It has the same purpose as safe empty state, both of them are preventing unpredictable behavior.
+
+2)	Describe how you have minimized code duplication. 
+In order to minimize the code, I created some functions to avoid code duplication. 
+For example, it need to check is the object in empty state or not, I created the function isEmpty(). 
+Without writing the code to check each time, the only thing to do is calling the isEmpty() to finish this task.
+Besides, I separated the code into Modular (Traveler.h and traveler.cpp). If I need the same function or logic next time,
+I don¡¦t need to create everything again. I can include it in another program to avoid coding again.
+
+
+3) Explain why the canTravelWith(...) member function can access the pri-vate data of the object referenced in its parameter. 
+Because C++ access control is based on per-class but not per-object, 
+function members can access the private data members in the ¡§same class¡¨.
+As a result, if we create two objects from the same class, both of them can use their function members to access another¡¦s private data.
+
+
+
+Quiz 4 Reflection 9/10
+
+3. what is a member operator?
+
+wrong: to create the overload operator for object to use the operation
+correct : member operator is a overloaded operator to redefine the operator on the object of that class
+

@@ -1,0 +1,14 @@
+In line number 11 of your output:
+The output should be:
+Enter the price for phone Pixel2: 759
+                                   ^
+But your output is: 
+Enter the price for phone Pixel2: 789
+                                   ^
+
+Unmatched character details:
+The character in column 36 is supposed to be:
+  [5] ASCII code(53)
+but you printed
+  [8] ASCII code(56)
+
